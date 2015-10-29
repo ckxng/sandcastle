@@ -1,2 +1,14 @@
 ---
 # vars file for sandstorm-base
+fail2ban_services:
+  - name: ssh
+    port: ssh
+    filter: sshd
+    logpath: /var/log/auth.log
+  - name: nginx-req-limit
+    port: http,https
+    filter: nginx-req-limit
+    logpath: /var/log/nginx/sandstorm.io.vagrant.dev/*.log
+    action: iptables-multiport[name=ReqLimit, port="http,https", protocol=tcp]
+    bantime: 7200
+    maxretry: 10

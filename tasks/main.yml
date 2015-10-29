@@ -3,5 +3,9 @@
 - include: nginx.yml
 - include: sandstorm.yml
 - include: sshd.yml
+- include: needrestart.yml
+- include: alias.yml
+- include: fail2ban.yml
   tags:
     - ssh
+    - fail2ban

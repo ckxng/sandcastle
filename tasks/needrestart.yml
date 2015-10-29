@@ -1,0 +1,5 @@
+---
+- name: install needrestart
+  apt:
+    pkg: needrestart
+    state: latest

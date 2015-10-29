@@ -1,3 +1,4 @@
 jnv.unattended-upgrades
 geerlingguy.firewall
 hardening.os-hardening
+nickjj.fail2ban

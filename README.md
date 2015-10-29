@@ -46,18 +46,28 @@ You can see `test.yml` in action with Vagrant:
   configuration that you need to get dnsmasq working, checkout [the
   docs](https://github.com/phinze/landrush#visibility-on-the-host) for more
   info)
-* `$ ansible-galaxy install -p dependencies -r requirements.txt`
-* `$ cd test && ./gen-test-cert.sh`
+* `virtualenv .venv`
+* `source .venv/bin/activate`
+* `pip install ansible`
+* `ansible-galaxy install -p dependencies -r requirements.txt`
+* `cd test && ./gen-test-cert.sh && cd ..`
 * Add `test/rootCA.pem` to your browsers trusted authorities list (**note!**
   while this is added to your browser anyone with access to rootCA.key will be
   able to compromise your TLS connections)
-* `$ vagrant up`
+* `vagrant up`
 * Navigate to https://sandstorm.io.vagrant.dev
 
 License
 -------
 
 MIT
+Copyright (c) <2015> <Jack Singleton et al.>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Author Information
 ------------------

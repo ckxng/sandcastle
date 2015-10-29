@@ -1,0 +1,9 @@
+---
+- name: fail2ban nginx request limit 
+  copy: 
+    dest: /etc/fail2ban/filter.d/nginx-req-limit.conf
+    src: nginx-req-limit.conf
+    backup: yes
+    owner: root
+    group: root
+    mode: 0677
