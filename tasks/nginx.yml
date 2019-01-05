@@ -1,11 +1,11 @@
 ---
 - name: Add nginx repository
   apt_repository:
-    repo: "deb http://nginx.org/packages/debian/ jessie nginx"
+    repo: "deb https://nginx.org/packages/debian/ jessie nginx"
 
 - name: Add nginx repository key
   apt_key:
-    url: http://nginx.org/keys/nginx_signing.key
+    url: https://nginx.org/keys/nginx_signing.key
     state: present
 
 - name: ensure latest nginx is installed
@@ -49,6 +49,12 @@
   copy:
     dest: "/var/www/502.html"
     content: "502: oops, something went wrong"
+
+- name: filter nginx logs to remove IPs
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
 
 - name: configure nginx reverse proxy
   template:

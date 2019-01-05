@@ -1,3 +1,0 @@
-jnv.unattended-upgrades,v1.1.0
-geerlingguy.firewall,1.0.6
-hardening.os-hardening
